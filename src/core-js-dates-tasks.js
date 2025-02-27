@@ -21,8 +21,6 @@ function dateToTimestamp(date) {
   return new Date(date).getTime();
 }
 
-// console.log(dateToTimestamp('04 Dec 1995 00:12:00 UTC'));
-
 /**
  * Returns the time in hh:mm:ss format from the received date.
  *
@@ -36,7 +34,6 @@ function dateToTimestamp(date) {
 function getTime(date) {
   return date.toTimeString().slice(0, 8);
 }
-// console.log(getTime(new Date(2023, 5, 1, 8, 20, 55)));
 
 /**
  * Returns the name of the day of the week for a given date string.
@@ -62,8 +59,6 @@ function getDayName(date) {
   return weekDay[new Date(date).getDay()];
 }
 
-// console.log(getDayName('01 Jan 1970 00:00:00 UTC'));
-
 /**
  * Returns the date of the next Friday from a given date.
  *
@@ -80,8 +75,6 @@ function getNextFriday(date) {
   return new Date(date.getTime() + daysTillFriday * 86400000);
 }
 
-// console.log(getNextFriday(new Date('2024-02-03T00:00:00Z')));
-
 /**
  * Returns the number of days in a specified month and year.
  *
@@ -97,8 +90,6 @@ function getCountDaysInMonth(month, year) {
   return new Date(year, month, 0).getDate();
 }
 
-// console.log(getCountDaysInMonth(1, 2024));
-
 /**
  * Returns the total number of days between two dates, including both the start and end dates.
  *
@@ -110,8 +101,8 @@ function getCountDaysInMonth(month, year) {
  * '2024-02-01T00:00:00.000Z', '2024-02-02T00:00:00.000Z'  => 2
  * '2024-02-01T00:00:00.000Z', '2024-02-12T00:00:00.000Z'  => 12
  */
-function getCountDaysOnPeriod(/* dateStart, dateEnd */) {
-  throw new Error('Not implemented');
+function getCountDaysOnPeriod(dateStart, dateEnd) {
+  return (new Date(dateEnd) - new Date(dateStart)) / 86400000 + 1;
 }
 
 /**
